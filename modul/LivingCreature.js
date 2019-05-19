@@ -30,9 +30,9 @@ module.exports = class LivingCreature {
                 if (matrix[y][x] == num) {
                     found.push(this.directions[i]);
                 }
-                else if (matrix[y][x].index == num) {
-                    found.push(this.directions[i]);
-                }
+                // else if (matrix[y][x].index == num) {
+                //     found.push(this.directions[i]);
+                // }
             }
         }
         return found;
