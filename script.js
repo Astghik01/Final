@@ -43,8 +43,8 @@
 //     [1, 1, 0, 0, 0],
 //     [1, 1, 0, 0, 3]
 // ];
-var side = 50;
-var socket = io()
+var side = 10;
+var socket = io();
 // side = 10;
 function setup() {
     createCanvas(20 * side, 20 * side);
@@ -84,33 +84,34 @@ function drawMatrix(matrix) {
                 fill("grey");
                 // rect(x * side, y * side, side, side);
             }
-            else if (matrix[y][x].index == 1) {
+            else if (matrix[y][x] == 1) {
                 fill("green");
                 // rect(x * side, y * side, side, side);
             }
-            else if (matrix[y][x].index == 2) {
+            else if (matrix[y][x] == 2) {
                 fill("yellow");
                 // rect(x * side, y * side, side, side);
-                matrix[y][x].acted = false;
+                // matrix[y][x].acted = false;
             }
-            else if (matrix[y][x].index == 3) {
+            else if (matrix[y][x] == 3) {
                 fill("blue");
                 // rect(x * side, y * side, side, side);
-                matrix[y][x].acted = false;
+                // matrix[y][x].acted = false;
             }
-            else if (matrix[y][x].index == 4) {
+            else if (matrix[y][x] == 4) {
                 fill("orange");
                 // rect(x * side, y * side, side, side);
-                matrix[y][x].acted = false;
+                // matrix[y][x].acted = false;
             }
-            else if (matrix[y][x].index == 5) {
+            else if (matrix[y][x] == 5) {
                 fill("pink");
                 // rect(x * side, y * side, side, side);
-                matrix[y][x].acted = false;
+                // matrix[y][x].acted = false;
             }
             rect(x * side, y * side, side, side);
         }
     }
 }
+
 socket.on("matrix", drawMatrix);
 

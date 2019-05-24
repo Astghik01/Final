@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var server = require('http').Server(app);
+var server = require('http').Server(app);
 var io = require('socket.io')(server);
 // var fs = require('fs');
 
@@ -10,15 +11,15 @@ app.get('/', function (req, res) {
     res.redirect('index.html');
 });
 server.listen(3000, function () {
-    console.log("port is running")
-});
+    console.log("port is running");
+})
 
 // Aystex kapum enq classery
-var Grass = require("./modul/Grass.js");
-var gishatich = require("./modul/gishatich.js");
-var GrassEater = require("./modul/GrassEater.js");
-var Sun = require("./modul/Sun.js");
-var ZarmanaliKerpar = require("./modul/ZarmanaliKerpar.js");
+ Grass = require("./modul/Grass.js");
+ gishatich = require("./modul/gishatich.js");
+ GrassEater = require("./modul/GrassEater.js");
+ Sun = require("./modul/Sun.js");
+ ZarmanaliKerpar = require("./modul/ZarmanaliKerpar.js");
 
 
 // haytararum enq zangvacnery
@@ -30,8 +31,8 @@ ZarmanaliKerparArr = [];
 
 // Matrix enq haytararum
 
-var w = 50;
-var h = 60;
+var w = 40;
+var h = 40;
 
 function genMatrix(w, h) {
     var matrix = [];
@@ -52,16 +53,17 @@ function genMatrix(w, h) {
 }
 
 
+
 // st. enq zan.-ic patahakan  andam tvox function
-// Random = function (arr) {
-//     return arr[Math.floor(Math.random() * arr.length)];
-// }
-
-
-//stexcum en zangvacic patahakan andam tvox function
 Random = function (arr) {
     return arr[Math.floor(Math.random() * arr.length)];
 }
+
+
+//stexcum en zangvacic patahakan andam tvox function
+// Random = function (arr) {
+//     return arr[Math.floor(Math.random() * arr.length)];
+// }
 
 
 // kanchum enq getMatrix functiony ev talis enq Matrix popoxakanin
@@ -72,19 +74,24 @@ matrix = genMatrix(w, h);
 for (var y = 0; y < matrix.length; y++) {
     for (var x = 0; x < matrix[y].length; x++) {
         if (matrix[y][x] == 1) {
-            GrassArr.push(new Grass(x, y, 1));
+            var xot = new Grass(x, y, 1);
+            GrassArr.push(xot);
         }
-        if (matrix[y][x] == 2) {
-            GrassEaterArr.push(new GrassEater(x, y, 2));
+     else   if (matrix[y][x] == 2) {
+            var xotaker = new GrassEater(x, y, 2);
+            GrassEaterArr.push(xotaker);
         }
-        if (matrix[y][x] == 3) {
-            gishatichArr.push(new gishatich(x, y, 3));
+       else if (matrix[y][x] == 3) {
+            var predator = new gishatich(x, y, 3);
+            gishatichArr.push(predator);
         }
-        if (matrix[y][x] == 4) {
-            SunArr.push(new Sun(x, y, 4));
+       else if (matrix[y][x] == 4) {
+            var arev = new Sun(x, y, 4);
+            SunArr.push(arev);
         }
-        if (matrix[y][x] == 5) {
-            ZarmanaliKerparArr.push(new ZarmanaliKerpar(x, y, 5));
+        else if (matrix[y][x] == 5) {
+            var newkerpar = new ZarmanaliKerpar(x, y, 5);
+            ZarmanaliKerparArr.push(newkerpar);
         }
     }
 }
